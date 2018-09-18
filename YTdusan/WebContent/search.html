@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YTdusan</title>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/nav.css">
+	<link rel="stylesheet" type="text/css" href="css/watch.css">
+	<script src="js/nav.js" type="text/javascript"></script>
+	<script src="js/watch.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<div class="header">
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="index.html">YTdusan</a>
+	    </div>
+	    
+	      <form class="navbar-form navbar-left" >
+	            <div class="form-group">
+	            
+	              <input type="text" class="form-control" id="searchParameter" placeholder="Search">
+	              <button id='Serach' onclick="search()" class="btn btn-default">Serach</button>
+
+
+	    <div class="btn-group">
+          <button type="button" class="btn btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu">
+            <div class="container">
+				<div class="row">	    			
+	    			<div class="card">            
+                    	<li class="list-group-item">Videos<label class="switch ">
+          					<input id="videoChecboxSerach" type="checkbox" class="success" checked="true">
+          					<span class="slider round"></span>
+        				</label>
+        				</li>
+        				<li class="list-group-item">Users<label class="switch ">
+          					<input id="userChecboxSerach" type="checkbox" class="success" checked="true">
+          					<span class="slider round"></span>
+        				</label>
+        				</li>
+                		</div>
+                	</div>
+                </div>
+          </ul>
+        </div>
+
+
+
+	               
+	            </div>
+	           
+	          </form>
+	    
+	    <ul class="nav navbar-nav navbar-right" id="navbarNotLoggedIn">
+	      <li data-toggle="modal" data-target="#myModal"><a><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+	      		<div id="myModal" class="modal fade">
+	      			<div class="modal-dialog modal-login">
+	      				<div class="modal-content">
+	      					<div class="modal-header">
+	      						<div class="avatar">
+	      							<img src="img/avatar.png" alt="Avatar">
+	      						</div>				
+	      						<h4 class="modal-title">Member Login</h4>	
+	      		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	      					</div>
+	      					<div class="modal-body">
+	      						<form action="/examples/actions/confirmation.php" method="post">
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="usernameLogin" name="username" placeholder="Username" required="required">		
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="password" id="passwordLogin" class="form-control" name="password" placeholder="Password" required="required">	
+	      							</div>        
+	      							<div class="form-group">
+	      								<button type="submit" id="logInSubmit"  class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+	      							</div>
+	      							<li><a data-toggle="modal" data-target="#modalRegistar"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+	      						</form>
+	      					</div>
+	      					
+	      				</div>
+	      			</div>
+	      		</div>     
+
+
+	      <li><a data-toggle="modal" data-target="#modalRegistar"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+	      <div id="modalRegistar" class="modal fade">
+	      			<div class="modal-dialog modal-login">
+	      				<div class="modal-content">
+	      					<div class="modal-header">
+	      						<div class="avatar">
+	      							<img src="img/avatar.png" alt="Avatar">
+	      						</div>				
+	      						<h4 class="modal-title">Sign Up</h4>	
+	      		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	      					</div>
+	      					<div class="modal-body">
+	      						<form action="/examples/actions/confirmation.php" method="post">
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="firstNameRegister" name="firsname" placeholder="First Name" required="required">		
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="lastNameRegister" name="lastname" placeholder="Last Name" required="required">		
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="usernameRegister" name="username" placeholder="Username" required="required">		
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="password" class="form-control" id="passwordRegister" name="password" placeholder="Password" required="required">	
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="emailRegister" name="email" placeholder="Email" required="required">		
+	      							</div>
+	      							<div class="form-group">
+	      								<input type="text" class="form-control" id="profileUrlRegister" name="profileUrl" placeholder="Profile Url">		
+	      							</div>
+	      							 
+	      							<div class="form-group">
+	      								<button id="registerSubmit" type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
+	      							</div>
+	      						</form>
+	      					</div>       					
+	      				</div>
+	      			</div>
+	      		</div>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right" id="navbarLoggedIn">
+	    
+	    
+	    				<li><a href="" onclick="admin()" id="adminPanel"><span class="glyphicon"></span>Admin Panel</a></li>
+                        <li><a href="#newVideoModal" data-toggle="modal" id="uploadVideo"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                        
+                        <li><a href="" onclick="profile()" id="myChannel"><span class="glyphicon glyphicon-user"></span>User</a></li>
+                        <li><a id="logout" onClick="logout();" href="#">Logout</a></li>
+                              
+         </ul>	    
+	  </div>
+	  
+	 </nav>
+	 </div>
+	<div class="mainDiv">
+            <div id="recommendedDiv">               
+            </div>
+            <div id="userSearch">
+            </div>
+            <div class="watchPage">
+    			<div class="left">
+
+        			
+        				<div id="videoDiv" class="videoAndControl" thumbnail>
+        					<iframe width="100%" height="500px" src="https://www.youtube.com/embed/83pI-SyXXYc" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen></iframe>
+        				</div>
+        				<div id="videoInfo">
+        					<div id="videoNameDiv">
+        						<h3 id="videoName">24 minuta sa Zoranom Kesicem -5. epizoda nove sezone</h3>
+        					</div>
+        					<ul class="likeDislike">
+        						<li class="likeDislikeLI" id="like">
+        							<button type="button" class="btn btn-default btn-sm">
+         								<span class="glyphicon glyphicon-thumbs-up"></span>
+        							</button>
+        						</li>
+        						<li class="likeDislikeLI" id="likeNum">
+        							<p id="likeNumP">123</p>
+        						</li>
+        						<li class="likeDislikeLI" id="dislike">
+        							<button type="button" class="btn btn-default btn-sm">
+         								<span class="glyphicon glyphicon-thumbs-down"></span>
+        							</button>
+        						</li>
+        						<li class="likeDislikeLI" id="dislikeNum">
+        							<p id="dislikeNumP">123</p>
+        						</li>
+  	      					</ul>
+
+        				</div>
+        				<div id="userInfo">
+        					<div class="leftUserInfo">
+        						<ul class="userInfoUl">
+        							<li class="userInfoLI">
+        								<img id="slika" src="./img/slika.png">
+        							</li>
+        							<li class="userInfoLI">
+        								<a href="#"><h3>B92</h3></a>
+        							</li>
+        							<li class="userInfoLI btn">
+        								<button class="btn btn-default" id="subscribeButton">SUBSCRIBE</button>
+        							</li>
+        						</ul>
+        						
+        					</div>
+        					
+        					
+        					
+        				</div>
+        				<div id="comments">
+        					
+        						<div class="commentsList">
+  <div class="commentsPage">
+    <div class="col-sm-12" >
+        
+        <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#commentPanel" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+                <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+                
+            </ul>            
+            <div class="tab-content">
+                <div class="tab-pane active" id="commentPanel">                
+                    <ul class="media-list">
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                        </a>
+                        <div class="media-body">
+                          <div class="well well-lg">
+                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                              <ul class="media-date text-uppercase reviews list-inline">
+                                <li class="dd">22</li>
+                                <li class="mm">09</li>
+                                <li class="aaaa">2014</li>
+                              </ul>
+                              <p class="media-comment">
+                                Great snippet! Thanks for sharing.
+                              </p>
+                              
+                          </div>              
+                        </div>                        
+                      
+                      </li>
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                        </a>
+                        <div class="media-body">
+                          <div class="well well-lg">
+                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                              <ul class="media-date text-uppercase reviews list-inline">
+                                <li class="dd">22</li>
+                                <li class="mm">09</li>
+                                <li class="aaaa">2014</li>
+                              </ul>
+                              <p class="media-comment">
+                                Great snippet! Thanks for sharing.
+                              </p>
+                              
+                          </div>              
+                        </div>                        
+                      
+                      </li>
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                        </a>
+                        <div class="media-body">
+                          <div class="well well-lg">
+                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                              <ul class="media-date text-uppercase reviews list-inline">
+                                <li class="dd">22</li>
+                                <li class="mm">09</li>
+                                <li class="aaaa">2014</li>
+                              </ul>
+                              <p class="media-comment">
+                                Great snippet! Thanks for sharing.
+                              </p>
+                              
+                          </div>              
+                        </div>                        
+                      
+                      </li>
+                    </ul> 
+                </div>
+
+                <div class="tab-pane" id="add-comment">
+                    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form"> 
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Comment</label>
+                            <div class="col-sm-10">
+                              <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">                    
+                                <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+                            </div>
+                        </div>            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+        				</div>
+
+
+
+ 		       		
+
+ 		       	</div>
+
+
+
+
+
+			</div>
+
+
+
+
+            </div>
+
+            <div class="right">
+            	 <div class="col-md-4">
+                        <a href="#" target="_self">
+                        <img id="videoImage" src="https://vignette.wikia.nocookie.net/lotr/images/8/87/Ringstrilogyposter.jpg/revision/latest?cb=20070806215413" alt="video" style="width:100%">
+                        </a>
+                        <div class="caption">
+                        <p id="titleBar">Lord of the rings 1080p</p>
+                        </div>
+                        <p id="videoInfo"><a href="https://www.youtube.com/watch?v=rCZ3SN65kIs" id="channelName"></a></p>
+                        <br>
+                        <br>
+                        <p>Posted on: 23.02.2018</p>
+                       
+                        </div>
+
+
+
+
+
+
+            </div>
+
+          
+       
+        
+       
+	
+    
+        
+        
+        
+	
+	
+
+
+
+	<div class="footer">
+	  <p>@ Dusan Vukovic</p>
+	</div>
+
+</body>
+</html>

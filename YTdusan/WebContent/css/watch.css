@@ -1,0 +1,385 @@
+
+#main{
+    margin: 0 10% 0 10%;
+}
+
+.navbar .navbar-inverse{
+    margin-bottom: 0;
+}
+
+#columns{
+    display: flex;
+    margin-left: 24px;
+    padding-top: 24px;
+    padding-right: 24px;
+    margin-bottom: 40px;
+}
+#primary{
+    width: 69%;
+    padding-right: 24px;
+}
+#secundary{
+    width: 32%;
+    
+
+}
+#primary-inner{
+    display: inline;
+}
+#player{
+    display: inline;
+    height: 60%;
+    width: 100%;
+    
+}
+#info{
+    display: inline;
+    height: 10%;
+    
+    
+}
+#bottom-row{
+    margin-top: 4px;
+    border-top:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+}
+
+#comments{
+    margin-top: 4px;
+    border-top:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+}
+#meta{
+    display: inline;
+    height: 22%;
+    margin-bottom: 4px;
+    border-bottom:solid;
+    border-color: #ecf0f1;
+    border-width: 10px;
+
+}
+#info-contents{
+    
+    padding-bottom: 12px;
+    border-bottom:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+}
+#menu-kontejner{
+    display: flex;
+}
+#flex{
+    width: 30%;
+}
+#likeDisLike{
+    float: right;
+    width: 40%;
+    display: flex;
+}
+#likeDiv{
+    display: flex;
+    width: 50%;
+}
+#disLikeDiv{
+    display: flex;
+    width: 49%;
+    margin-right: 10px;
+}
+
+#buttonLikeDiv{
+    padding: 6px 0;
+    margin-right: 10%;
+    display: flex;
+}
+
+#buttonDisLikeDiv{
+    padding: 6px 0;
+     margin-right: 10%;
+    display: flex;
+}
+#disLikeBtn{
+    height: 100%;
+    margin: 0;
+
+
+}
+
+#top-row{
+    height: 50%;
+}
+#upload{
+    display: flex;
+    padding-top: 5px;
+    margin-bottom: 2px;
+}
+#profilnaSlika{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+#upload-info{
+    margin-left: 10px;
+    width: 60%;
+}
+#subDiv{
+    width: 40%;
+    display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+#subscribe{
+    width: 100%;
+    letter-spacing: 3px;
+    font-weight: 10px;
+}
+#bottom-row{
+     height: 50%;
+     width: 100%;
+}
+#description
+{
+ background-color: white;
+  resize: none;
+  border-style: none;
+  width:100%;
+  margin:5px 0;
+  padding:3px;
+}
+
+#comment-header-content{
+    margin: 10px 0 10px 0;
+}
+
+#title-com{
+    margin-bottom: 20px;
+}
+#commDrop{
+    left: none;
+  
+}
+
+
+.buttonDrop{
+    height: 30px;
+    width: 200px;
+    background-color: white;
+    font-size: 100%;
+    font:bold;
+}
+
+#profilnaKomnetatora{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+    bottom: 0;
+}
+#posKomentarDugme{
+    width: 20%;
+}
+#simpleBox{
+    display: flex;
+    
+    border-bottom:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+    margin-bottom: 24px;
+
+}
+
+
+#komentarZaPostavljanje{
+    display: flex;
+  align-items: center;
+  justify-content: center; 
+    width: 60%;
+    margin-right: 30px;
+}
+#posKomentarDugme{
+   display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+#komentarSadrzaj{
+    
+}
+#komentar{
+
+    width: 100%;
+    margin-bottom: 24px;
+    
+}
+.komentarContent{
+    display: flex;
+    margin-bottom: 24px;
+     border-bottom:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+}
+
+#slikaKomentaraDiv{
+    margin-right: 10px;
+
+}
+#slikaKometara{
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+#headerKomentar{
+    width: 100%;
+    height: 50%;
+}
+#buttonKomentar{
+    height: 50%;
+    width: 100%;
+}
+#ImeIdAtum{
+    display: flex;
+}
+#ime{
+    margin-right: 20px;
+}
+#datum{
+    color:#78d3b3;
+}
+#mianKomentar{
+    width: 100%;
+}
+.deleteKomentar{
+    background-color: #bc3838;
+}
+#komentarDugmici{
+    margin-top: 10px;
+    display: flex;
+    float: right;
+}
+.editKomentar{
+    margin-right: 24px;
+}
+#likeDislikeDugmici{
+    margin-top: 10px;
+    display: flex;
+    float: left;
+}
+.likeKomentar{
+   
+    border-style: none;
+    background-color: #edeff2;
+    margin-right: 15px;
+}
+#numLikes{
+    margin-right: 15px;
+    padding-top: 6px;
+}
+.disLikeKometar{
+    border-style: none;
+    background-color: #edeff2;
+    margin-right: 15px;
+
+    
+}
+#numDisLikes{
+     margin-right: 15px;
+     padding-top: 6px;
+}
+.disLikeKometar:hover{
+    color:red;
+}
+.likeKomentar:hover{
+    color: #60c7c1;
+}
+
+#likeDisLike{
+    margin-top: 10px;
+    display: flex;
+    float: right;
+}
+#likeVideo{
+   
+    border-style: none;
+
+
+    background-color: #edeff2;
+    margin-right: 15px;
+}
+#numLikesVideo{
+    margin-right: 15px;
+    padding-top: 6px;
+}
+#disLikeVideo{
+    border-style: none;
+    background-color: #edeff2;
+    margin-right: 15px;
+
+    
+}
+#numDisLikesVideo{
+     margin-right: 15px;
+     padding-top: 6px;
+}
+#disLikeVideo:hover{
+    color:red;
+}
+#disLikeVideo:clicked{
+    color:red;
+}
+#likeVideo:hover{
+    color: #60c7c1;
+}
+
+#konetejnerSadrzaj{
+    display: flex;
+    height: 100%;
+    margin-bottom:24px;
+     border-top:solid;
+    border-color: #ecf0f1;
+    border-width: 1px;
+}
+
+#slikaVideo{
+
+    width: 60%;
+    margin-right: 10px;
+}
+#infoVideo{
+    height: 100%;
+    width: 40%;
+}
+#nazivVidea{
+    height: 48%;
+    overflow: hidden;
+  text-overflow: ellipsis;
+}
+#slika{
+    height: 150px;
+    width: 100%;
+}
+#imeKanala{
+    height: 25%;
+    color:#adadad;
+}
+#numOfViews{
+    height: 25%;
+    color:#adadad;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+ a:hover{
+    color:inherit;
+  text-decoration: none;
+ }
+ 
+ #adminPanelModal{
+    width: 80%;
+    margin-left: 10%;
+}
+.container{
+    background-color: white;
+}

@@ -1,0 +1,257 @@
+#navbarLoggedIn{
+    display: none;
+}
+#navbarNotLoggedIn{
+    display: block;
+}
+#adminPanel{
+	display: none;
+}
+
+.navbar-form{
+	width: 45%;
+	height: auto;
+	
+} 
+
+.form-group{
+	width: 100%;
+}
+
+
+
+
+
+.navbar-inverse{
+	border-color: #ecf0f1;  
+}
+
+.container-fluid{
+	background-color: #ecf0f1;
+	border-color: #e6eeff;
+}
+
+.navbar-header{
+	color:#003399;
+}
+
+#searchParameter{
+	width: 70%;
+	margin-left: 2%;
+}
+.btn-default{
+	background-color: #60c7c1;
+	color: white;
+
+}
+
+
+
+    body {
+		font-family: 'Varela Round', sans-serif;
+	}
+	.modal-login {		
+		color: #636363;
+		width: 350px;
+	}
+	.modal-login .modal-content {
+		padding: 20px;
+		border-radius: 5px;
+		border: none;
+	}
+	.modal-login .modal-header {
+		border-bottom: none;   
+        position: relative;
+        justify-content: center;
+	}
+	.modal-login h4 {
+		text-align: center;
+		font-size: 26px;
+		margin: 30px 0 -15px;
+	}
+	.modal-login .form-control:focus {
+		border-color: #70c5c0;
+	}
+	.modal-login .form-control, .modal-login .btn {
+		min-height: 40px;
+		border-radius: 3px; 
+	}
+	.modal-login .close {
+        position: absolute;
+		top: -5px;
+		right: -5px;
+	}	
+	.modal-login .modal-footer {
+		background: #ecf0f1;
+		border-color: #dee4e7;
+		text-align: center;
+        justify-content: center;
+		margin: 0 -20px -20px;
+		border-radius: 5px;
+		font-size: 13px;
+	}
+	.modal-login .modal-footer a {
+		color: #999;
+	}		
+	.modal-login .avatar {
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		top: -70px;
+		width: 95px;
+		height: 95px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #60c7c1;
+		padding: 15px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+	.modal-login .avatar img {
+		width: 100%;
+	}
+	.modal-login.modal-dialog {
+		margin-top: 80px;
+	}
+    .modal-login .btn {
+        color: #fff;
+        border-radius: 4px;
+		background: #60c7c1;
+		text-decoration: none;
+		transition: all 0.4s;
+        line-height: normal;
+        border: none;
+    }
+	.modal-login .btn:hover, .modal-login .btn:focus {
+		background: #45aba6;
+		outline: none;
+	}
+	.trigger-btn {
+		display: inline-block;
+		margin: 100px auto;
+	}
+
+
+	.col-sm-4{
+		height: 100%;
+	}
+
+	.video{
+		height: 250px;
+
+	}
+	
+	
+
+
+
+
+
+	.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ecf0f1;
+    color: #60c7c1;
+    text-align: center;
+	}
+
+	.video{
+		width: 100%;
+		margin: 4% 0 4% 0;	
+	}
+
+	.btn{
+		margin:0;
+	}
+
+
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+  float:right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 60%;
+  width: 40%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+input.success:checked + .slider {
+  background-color: #60c7c1;
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(80%);
+  -ms-transform: translateX(80%);
+  transform: translateX(95%);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.container{
+	width: 100%;
+}
+
+.row{
+
+	width: 120%;
+}
+.list-group-item{
+	border-style: none;
+}
+
+
+.btn{
+	margin-left: 2px;
+}
+
+#videoNameSerach{
+	margin-top:5px;
+}
+#viewsSearch1{
+	margin-top:5px;
+}
+#dateSearch1{
+	margin-top:5px;
+}

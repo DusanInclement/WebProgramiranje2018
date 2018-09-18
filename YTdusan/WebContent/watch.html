@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>YTdusan</title>
+      <script src="js/jquery-2.1.4.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/nav.css">
+      <link rel="stylesheet" type="text/css" href="css/watch.css">
+      <script src="js/nav.js" type="text/javascript"></script>
+      <script src="js/watch.js" type="text/javascript"></script>
+      <script src="https://www.w3schools.com/lib/w3.js"></script>
+   </head>
+   <body>
+      <div class="header">
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="index.html">YTdusan</a>
+               </div>
+               <form class="navbar-form navbar-left" >
+                  <div class="form-group">
+                     <input type="text" class="form-control" id="searchParameter" placeholder="Search">
+                     <button id='Serach' onclick="search()" class="btn btn-default">Serach</button>
+                     <div class="btn-group">
+                        <button type="button" class="btn btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                           <div class="container">
+                              <div class="row">
+                                 <div class="card">
+                                    <li class="list-group-item">Videos<label class="switch ">
+                                       <input id="videoChecboxSerach" type="checkbox" class="success" checked="true">
+                                       <span class="slider round"></span>
+                                       </label>
+                                    </li>
+                                    <li class="list-group-item">Users<label class="switch ">
+                                       <input id="userChecboxSerach" type="checkbox" class="success" checked="true">
+                                       <span class="slider round"></span>
+                                       </label>
+                                    </li>
+                                 </div>
+                              </div>
+                           </div>
+                        </ul>
+                        <button type="button" data-toggle="modal" data-target="#SearchModal" class="btn glyphicon glyphicon-filter"></button>
+                     </div>
+                  </div>
+               </form>
+               <ul class="nav navbar-nav navbar-right" id="navbarNotLoggedIn">
+                  <li data-toggle="modal" data-target="#myModal"><a><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+                  <div id="myModal" class="modal fade">
+                     <div class="modal-dialog modal-login">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <div class="avatar">
+                                 <img src="img/avatar.png" alt="Avatar">
+                              </div>
+                              <h4 class="modal-title">Member Login</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           </div>
+                           <div class="modal-body">
+                              <form action="/examples/actions/confirmation.php" method="post">
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="usernameLogin" name="username" placeholder="Username" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="password" id="passwordLogin" class="form-control" name="password" placeholder="Password" required="required">  
+                                 </div>
+                                 <div class="form-group">
+                                    <button type="submit" id="logInSubmit"  class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+                                 </div>
+                                 <li><a data-toggle="modal" data-target="#modalRegistar"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <li><a data-toggle="modal" data-target="#modalRegistar"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+                  <div id="modalRegistar" class="modal fade">
+                     <div class="modal-dialog modal-login">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <div class="avatar">
+                                 <img src="img/avatar.png" alt="Avatar">
+                              </div>
+                              <h4 class="modal-title">Sign Up</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           </div>
+                           <div class="modal-body">
+                              <form action="/examples/actions/confirmation.php" method="post">
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="firstNameRegister" name="firsname" placeholder="First Name" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="lastNameRegister" name="lastname" placeholder="Last Name" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="usernameRegister" name="username" placeholder="Username" required="required">   
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="password" class="form-control" id="passwordRegister" name="password" placeholder="Password" required="required"> 
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="emailRegister" name="email" placeholder="Email" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="profileUrlRegister" name="profileUrl" placeholder="Profile Url">    
+                                 </div>
+                                 <div class="form-group">
+                                    <button id="registerSubmit" type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </ul>
+               <ul class="nav navbar-nav navbar-right" id="navbarLoggedIn">
+                  <li><a href="" data-toggle="modal" data-target="#adminPanelModal"  id="adminPanel"><span class="glyphicon"></span>Admin Panel</a></li>
+                  <li><a href="" data-toggle="modal" data-target="#modalUpload" id="uploadVideo"><span class="glyphicon glyphicon-upload"></span> Upload</a></li>
+                  <li><a href="" onclick="profile()" id="myChannel"><span class="glyphicon glyphicon-user"></span>User</a></li>
+                  <li><a id="logout" onClick="logout();" href="#">Logout</a></li>
+               </ul>
+            </div>
+         </nav>
+      </div>
+      
+      
+     
+      <div id="main">
+      	<div id="recommendedDiv">
+      		
+         <div id="columns">
+            <div id="primary">
+               <div id="primary-inner">
+                  <div id="player">
+                     
+                  </div>
+                  <div id="info">
+                     <div id="info-contents">
+                        <div id="naslov">
+                           
+                        </div>
+                        <div id="menu-kontejner">
+                           <div id="brojPregledaDiv">
+                              
+                           </div>
+                           <div id="flex"></div>
+                           <div id="likeDisLike">
+                              
+                           </div>
+                        </div>
+                     </div>
+                     <div id="meta">
+                        <div id="meta-kontejner">
+                           <div id="top-row">
+                              <div id="upload">
+                                 <div id="pictureProfile">
+                                 </div>
+                                 <div id="upload-info">
+                                    <div id="owner">
+                                       
+                                    </div>
+                                    <div id="dateVideo">
+                                       
+                                    </div>
+                                 </div>
+                                 <div id="subDiv">
+                                    
+                                 </div>
+                              </div>
+                           </div>
+                           <div id="bottom-row">
+                              
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="comments">
+                     <div id="comment-header">
+                        <div id="comment-header-content">
+                           <div id="title-com">
+                              <button type="button" class="btn btn dropdown-toggle" data-toggle="dropdown">SORT BY:<span class="caret"></span></button>
+                              <ul class="dropdown-menu" id="commDrop" role="menu" >
+                                 <div class="container">
+                                    <div class="row">
+                                       <div class="card">
+                                          <li>
+                                             <button class="buttonDrop">Top Comments</button>
+                                          </li>
+                                          <li>
+                                             <button class="buttonDrop">Newest first</button>
+                                          </li>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </ul>
+                           </div>
+                        </div>
+                        <div id="simpleBox">
+                           <div id="imgUploadComm">
+                              
+                           </div>
+                           <div id="komentarZaPostavljanje">
+                              <input type="text" class="form-control" id="komentarSadrzaj" aria-describedby="emailHelp" placeholder="Post Comment" >
+                           </div>
+                           <div id="posKomentarDugme">
+                              <button id="postKomentar" data-target="" onclick="postKomentar()" class="btn btn-default">POST</button>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div id="komentar">
+                       
+                     </div>
+
+
+                      
+
+                  </div>
+               </div>
+            </div>
+
+            <div id="secundary">
+               <div id="videoKonetejner">
+                 
+               </div>
+
+               
+              
+
+
+	
+               
+               
+            </div>
+         </div>
+      </div>
+      <div id="userSearch"></div>
+	</div>
+	<div id="editModal" class="modal fade">
+                     <div class="modal-dialog modal-login">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <div class="avatar">
+                                 <img src="img/komentarEdit.png" alt="Avatar">
+                              </div>
+                              <h4 class="modal-title">Edit Comment</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           </div>
+                           <div class="modal-body">                                
+                                 <div class="form-group">
+                                    <textarea id="editKomentText" name="Text1" style="width: 100%;" rows="2"></textarea>  
+                                 </div>
+                                 <div class="form-group">
+                                    <button type="submit" id="editSubmit"  class="btn btn-primary btn-lg btn-block login-btn">Edit</button>
+                                 </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  
+                  
+             <div id="adminPanelModal" class="modal fade">
+                     <div class="container">
+                        
+                         <table id="adminTable" class="table table-striped custab">
+                         
+                        
+                             <tr>
+                             
+                             <th onclick="w3.sortHTML('#adminTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">UserName</th>
+   							 <th onclick="w3.sortHTML('#adminTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">First Name</th>
+   							  <th onclick="w3.sortHTML('#adminTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Last Name</th>
+   							 <th onclick="w3.sortHTML('#adminTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">User Type</th>
+   							  <th onclick="w3.sortHTML('#adminTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Blocked</th>
+   							
+                             
+                             
+                                 
+                                 <th class="text-center">Action</th>
+                             </tr> 
+                         	
+                                
+                         </table>
+                        
+                     </div>
+                  </div>
+                  
+                  
+                 <div id="modalUpload" class="modal fade">
+                     <div class="modal-dialog modal-login">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <div class="avatar">
+                                 <img src="img/video.png" alt="Avatar">
+                              </div>
+                              <h4 class="modal-title">Upload Video</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           </div>
+                           <div class="modal-body">
+                              <form>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="videoUrlUpload" name="videoUrl" placeholder="Video Url" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="pictureUrlUpload" name="pictureUrl" placeholder="Picture Url" required="required">    
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" id="videoNameUpload" name="videoName" placeholder="Video Name" required="required">   
+                                 </div>
+                                 <div class="form-group">
+                                    <input  class="form-control" id="descriptionUpload" name="description" placeholder="Description" required="required"> 
+                                 </div>
+                                 <div class="form-group">
+
+                                  <h3>Visibility:</h3>
+                                  <fieldset id="group1" style="display: flex;">
+                                  <label class="container">Public
+                                     <input id="publicRadio" type="radio" value="Public" name="group1" checked=true>
+                                  </label>
+                                  <label class="container">Private
+                                     <input id="privateRadio" type="radio" value="Private" name="group1">
+                                  </label>
+                                  <label class="container">Unlisted
+                                     <input id="unlistedRadio" type="radio" value="Unlisted" name="group1">
+                                  </label>
+                                   </fieldset>
+                                 </div>
+
+                                 <div class="form-group">
+                                  <h3>Commnets:</h3>
+                                  <fieldset id="group2" style="display: flex;">
+                                   <label class="container">Yes 
+                                      <input id="commYes" type="radio" value="Yes" name="group2" checked=true>
+                                    </label>
+                                    <label class="container">No
+                                      <input id="commNo" type="radio" value="No" name="group2">
+                                    </label>
+                                    </fieldset>
+                                 </div>
+
+                                 <div class="form-group">
+                                  <h3>Rating:</h3>
+                                  <fieldset id="group3" style="display: flex;">
+                                   <label class="container">Yes 
+                                      <input  id="ratYes" type="radio" value="Yes" name="group3" checked=true>
+                                    </label>
+                                    <label class="container">No
+                                      <input  id="ratNo" type="radio" value="No" name="group3">
+                                    </label>
+                                    </fieldset>
+                                 </div>                        
+                                 <div class="form-group">
+                                    <button id="uploadVideoPost" class="btn btn-primary">Upload</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+	   
+                  
+                  <div id="SearchModal" class="modal fade">
+                     <div class="modal-dialog modal-login">
+                        <div class="modal-content" style="width: 100%">
+                           <div class="modal-header">
+                              <div class="avatar">
+                                 <img src="img/lupa.png" alt="Avatar">
+                              </div>
+                              <h4 class="modal-title">Search Video</h4>
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           </div>
+                                                         
+                                 <div class="form-group" >
+                                    <input type="text" class="form-control" id="userNameSerach" name="userName" placeholder="User Name:"> 
+                                    <input type="text" class="form-control" id="videoNameSerach" name="videoName" placeholder="Video Name:">
+                                    <input type="text" class="form-control" id="viewsSearch1" name="views" placeholder="Number of Views:"> 
+                                    <input type="text" class="form-control" id="dateSearch1" name="date" placeholder="Date: yyyy-mm-dd">    
+                                 </div>
+
+                                 <div class="form-group">
+                                  <h3>Sort by:</h3>
+                                  <fieldset id="group6" style="display: flex;">
+                                  <label class="container">Owner
+                                      <input id="ownerSearch" type="radio" value="Date" name="group6">
+                                    </label>
+                                    <label class="container">Video
+                                      <input id="videoSearch" type="radio" value="Date" name="group6">
+                                    </label>
+                                   <label class="container">Views  
+                                      <input id="viewsSearch" type="radio" value="Views" name="group6" checked=true>
+                                    </label>
+                                    <label class="container">Date
+                                      <input id="dateSearch" type="radio" value="Date" name="group6">
+                                    </label>
+                                    </fieldset>
+                                 </div>
+
+                                <div class="form-group">
+                                  <h3>How:</h3>
+                                  <fieldset id="group7" style="display: flex;">
+                                   <label class="container">DESC  
+                                      <input id="descSearch" type="radio" value="DESC" name="group7" checked=true>
+                                    </label>
+                                    <label class="container">ASC
+                                      <input id="ascSearch" type="radio" value="ASC" name="group7">
+                                    </label>
+                                    </fieldset>
+                                 </div>
+
+                                 <div class="form-group">
+                                    <button type="submit" id="searchSher" onClick="serachSher()" class="btn btn-primary btn-lg btn-block login-btn">Search</button>
+                                 </div>
+                           
+                        </div>
+                     </div>
+                  </div>
+                        
+      <div class="footer">
+         <p style="margin: 0">@ Dusan Vukovic</p>
+      </div>      
+   </body>
+</html>
+
